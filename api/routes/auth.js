@@ -17,6 +17,7 @@ router.post("/register", async (req, res) => {
         req.body.password,
         process.env.SECRET_KEY
       ).toString(),
+      profilePic:req.body.profilePic
     });
     try {
       const user = await newUser.save();

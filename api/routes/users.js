@@ -51,8 +51,11 @@ router.delete("/:id", verify, async (req, res) => {
 //GET
 
 router.get("/find/:id", async (req, res) => {
+  console.log("reached here!!!")
     try {
+      console.log("reached here!!!")
       const user = await User.findById(req.params.id);
+      console.log(user)
       const { password, ...info } = user._doc;
       res.status(200).json(info);
     } catch (err) {
@@ -62,9 +65,9 @@ router.get("/find/:id", async (req, res) => {
 
 
 //GET ALL
-router.get("/", verify, async (req, res) => {
+router.get("/", async (req, res) => {
     const query = req.query.new;
-    if (req.user.isAdmin) {
+    // if (req.user.isAdmin) {
       try {
         const users = query
           ? await User.find().sort({ _id: -1 }).limit(5)
@@ -73,9 +76,9 @@ router.get("/", verify, async (req, res) => {
       } catch (err) {
         res.status(500).json(err);
       }
-    } else {
-      res.status(403).json("You are not allowed to see all users!");
-    }
+    // } else {
+    //   res.status(403).json("You are not allowed to see all users!");
+    // }
   });
 
 
