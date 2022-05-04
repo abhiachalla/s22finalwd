@@ -13,7 +13,10 @@ export default function Watch() {
           Home
         </div>
       </Link>
-      <video className="video" autoPlay progress controls src={movie.video} />
+{ movie &&      <video className="video" autoPlay progress controls src={movie.video} />}
+  
+{!movie && <h1 className="t-4">No trailer for this movie!</h1>}  
+  
     </div>
   );
 }

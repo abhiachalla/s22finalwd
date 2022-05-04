@@ -4,6 +4,9 @@ import Watch from "./pages/watch/watch.jsx";
 import Register from "./pages/register/register.jsx";
 import Login from "./pages/login/login.jsx";
 import Anonymous from "./pages/anonymous/anonymous.jsx"
+import Adder from "./pages/Adder/Adder";
+import Search from "./pages/search/search.jsx"
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,6 +20,7 @@ import {
 import React from 'react'
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
+import Details from "./pages/details/details.jsx";
 
 const App = () => {
 
@@ -27,7 +31,10 @@ const App = () => {
             <Switch>
     
                 <Route exact path = "/">
-                   {user ? <Home/> : <Redirect to="/register"/>} 
+
+                    <Adder/>
+                   {/* {user ? <Home/> : <Redirect to="/register"/>}  */}
+
                 </Route>
 
                 <Route path = "/register">
@@ -58,6 +65,14 @@ const App = () => {
 
                                 <Route path = "/watch">
                                     <Watch/>
+                                </Route>
+
+                                <Route path = "/search">
+                                    <Search/>
+                                </Route>
+
+                                <Route path = "/details/:imdbID">
+                                    <Details/>
                                 </Route>
                         
                         </>

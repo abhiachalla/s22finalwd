@@ -8,8 +8,6 @@ import axios from "axios";
 
 
 const Home = ({type}) => {
-  console.log("entered home")
-
 
     const [lists, setlists] = useState([]);
     const [genre, setGenre] = useState(null);
@@ -45,12 +43,12 @@ const Home = ({type}) => {
             <Navbar/>
            
             <Featured type = {type} setGenre={setGenre}/>
+            
 
 
-{lists.map((list) => (
+{/* {lists.map((list) => (
         <List list={list} />
-      ))}
-
+      ))} */}
 
         </div>
     )
