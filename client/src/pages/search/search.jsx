@@ -1,7 +1,7 @@
 import './search.css';
 import {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -9,11 +9,16 @@ const Search2 =() => {
 
     const searchRef=useRef(); 
 
+    const {searchID} = useParams();
+    console.log("search result: "+searchID)
+
+
     const [movies,setMovies] = useState([]);
     const url = "https://www.omdbapi.com/?apikey=5e1f4b00"
 
     const searchByTitle = async() => {
-        const searchString = searchRef.current.value || 'movie'
+        setMovies([]);
+        const searchString = searchRef.current.value || searchID ||'movie'
         const response = await axios.get(`${url}&s=${searchString}`)
         setMovies(response.data.Search)
         

@@ -1,0 +1,22 @@
+body{
+    color: red;
+}
+
+.col-flex {
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
+}
+
+.red {
+    color: red
+}
+
+.green {
+    color:green
+}
+
+.no-dec {
+    color:white;
+    text-decoration: none;
+}

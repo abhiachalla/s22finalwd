@@ -7,7 +7,11 @@ import { logout } from "../../authContext/AuthActions";
 import { AuthContext } from "../../authContext/AuthContext";
 
 
-const Navbar = () => {
+const Navbar = (user) => {
+  console.log(user)
+
+  // console.log("entered navbar");
+  // console.log(user.user.user.profilePic)
 
   const [isScrolled, setisScrolled] = useState(false);
   const {dispatch} = useContext(AuthContext);
@@ -44,12 +48,18 @@ const Navbar = () => {
                 <Search className="icon"/>
                     </Link>
                   
-                    <span>KID</span>
+                    <span>Hello {user.user.username}!</span>
                     <Notifications className="icon"/>
+
+<Link to ="/profile">
+
                     <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src={user.user.profilePic}
             alt=""
-          />
+            />
+            </Link>
+
+
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">

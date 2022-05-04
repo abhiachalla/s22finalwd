@@ -1,6 +1,6 @@
 
 import { useRef, useState } from 'react'
-import AnonListItem from "../listitem/anonlistitem.jsx"
+import ListItem from "../listitem/listitem.jsx"
 import {
     ArrowBackIosOutlined,
     ArrowForwardIosOutlined,
@@ -24,7 +24,7 @@ export default function List({ list })  {
             listRef.current.style.transform = `translateX(${230 + distance}px)`
         }
 
-        if(direction === "right" && itemNumber < 25) {
+        if(direction === "right" && itemNumber < 5) {
             setItemNumber(itemNumber + 1)
             listRef.current.style.transform = `translateX(${-230 + distance}px)`
         }
@@ -41,8 +41,8 @@ export default function List({ list })  {
               style={{ display: !isMoved && "none" }}
             />
             <div className="container" ref={listRef}>
-              {list.map((item, i) => (
-                <AnonListItem index={i} item={item} />
+              {list.content.map((item, i) => (
+                <ListItem index={i} item={item} />
               ))}
             </div>
             <ArrowForwardIosOutlined

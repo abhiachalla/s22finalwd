@@ -7,9 +7,11 @@ import { useState,useEffect } from "react";
 
 
 
-const Anonfeatured = (ranmov)=> {
+const Anonfeatured = ({list})=> {
 
-    console.log(ranmov)
+
+
+
 
 
     // const [ranmov2,setRanMovie] = useState(null);
@@ -43,7 +45,7 @@ const Anonfeatured = (ranmov)=> {
         <div className='featured'>
   
             <img
-        src={ranmov.Poster}
+        src={list[0].Poster}
         alt=""
       />
 
@@ -53,7 +55,7 @@ const Anonfeatured = (ranmov)=> {
           alt=""
         />
         <span className="desc">
-            {ranmov.title}
+            {list[0].title}
         </span>
         <div className="buttons">
           <button className="play">

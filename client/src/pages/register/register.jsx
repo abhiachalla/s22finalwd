@@ -8,11 +8,14 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [profilePic, setProfilePic] = useState("");
+  
   const history = useHistory();
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const usernameRef = useRef();
+  const profilePicRef = useRef();
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
@@ -21,10 +24,11 @@ export default function Register() {
     e.preventDefault();
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
+    setProfilePic(profilePicRef.current.value);
     try {
 
 
-      await axios.post("auth/register", {email, username, password});
+      await axios.post("auth/register", {email, username, password, profilePic});
       history.push("/login");
     } catch(err) {
       
@@ -59,6 +63,7 @@ export default function Register() {
           <form className="input">
             <input type="username" placeholder="username" ref={usernameRef} />
             <input type="password" placeholder="password" ref={passwordRef} />
+            <input type="username" placeholder="profile picture url" ref={profilePicRef} />
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>
